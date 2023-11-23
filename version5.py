@@ -1,5 +1,4 @@
 # Gestion De Notas creado por Enmanuel Gonzalez 2022-0228 y Breylin Ureña 2020-1055
-
 # Creamos un diccionario para caractalogar y alamcenar datos en forma de lista
 notas = {
     "General": [
@@ -140,9 +139,11 @@ def editar_carpeta():
         nuevo_nombre = input("Ingrese el nuevo nombre de la carpeta: ").capitalize()
         notas[nuevo_nombre] = notas[carpeta_a_editar]
         del notas[carpeta_a_editar]
-        return f"Carpeta '{carpeta_a_editar}' editada con éxito. Nuevo nombre: '{nuevo_nombre}'."
+        return print(
+            f"Carpeta '{carpeta_a_editar}' editada con éxito. Nuevo nombre: '{nuevo_nombre}'."
+        )
     else:
-        return f"La carpeta '{carpeta_a_editar}' no existe. No se pudo editar."
+        return print(f"La carpeta '{carpeta_a_editar}' no existe. No se pudo editar.")
 
 
 # Funcion para eliminar un catalogo
@@ -153,9 +154,11 @@ def eliminar_carpeta():
 
     if carpeta_a_eliminar in notas:
         notas.pop(carpeta_a_eliminar)
-        return f"Carpeta '{carpeta_a_eliminar}' eliminada con éxito."
+        return print(f"Carpeta '{carpeta_a_eliminar}' eliminada con éxito.")
     else:
-        return f"La carpeta '{carpeta_a_eliminar}' no existe. No se pudo eliminar."
+        return print(
+            f"La carpeta '{carpeta_a_eliminar}' no existe. No se pudo eliminar."
+        )
 
 
 # Bienvenida
@@ -169,10 +172,11 @@ while True:
     print("3. Abrir carpeta")
     print("4. Editar carpeta")
     print("5. Eliminar carpeta")
-    print("6. Salir")
-    print("7. Información del programa")
+    print("6. Buscar Notas")
+    print("7. Salir")
+    print("8. Información del programa")
 
-    opcion = input("Seleccione una opción (1-7): ")
+    opcion = input("Seleccione una opción (1-8): ")
 
     if opcion == "1":
         imprimir_carpetas()
@@ -185,9 +189,11 @@ while True:
     elif opcion == "5":
         eliminar_carpeta()
     elif opcion == "6":
+        buscar_notas()
+    elif opcion == "7":
         print("Gracias por utilizar la Gestión de Notas Estudiantiles. ¡Hasta luego!")
         break
-    elif opcion == "7":
+    elif opcion == "8":
         print(
             "Esta aplicación es un gestor de notas con el objetivo de organizar y almacenar información,\n",
             "como apuntes o tareas de manera digital. Facilita la gestión y el acceso rápido a la información,\n"
